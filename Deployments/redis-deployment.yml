@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis-deployment
+  name: redis-slave
   labels:
     app: guestbook-app
 spec:
@@ -18,7 +18,7 @@ spec:
         app: guestbook-app
     spec:
       containers:
-      - name: redis
-        image: redis
+      - name: slave
+        image: gcr.io/google_samples/gb-redisslave:v1
         ports:
           - containerPort: 6379
