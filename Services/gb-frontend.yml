@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gb-frontend-service
+  labels:
+    name: gb-frontend-service
+    app: guestbook-app
+spec:
+  type: LoadBalancer
+  ports:
+  - targetPort: 80
+    port: 80
+  selector:
+    name: gb-frontend-pod
+    app: guestbook-app
